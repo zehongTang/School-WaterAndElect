@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>通过学生号查询寝室号</title>
+</head>
+<body>
+<form action="/student">
+    <label for="text">请输入学生号：</label>
+    <input id="text" type="text">
+    <input type="submit" value="查询">
+</form>
+<span>寝室号： </span>
+<input type="text" th:text="${roomid}">
+</body>
+</html>

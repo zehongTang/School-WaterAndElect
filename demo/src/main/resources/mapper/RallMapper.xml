@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tu.demo.mapper.WaterDao">
+    <resultMap id="RallMap" type="com.tu.demo.entity.VO.RallVo">
+    <id column="date" property="date"  />
+    <result column="water_consumption" property="waterConsumption" />
+    <result column="water_per_price" property="waterPrice" />
+    <result column="electricity_per_price" property="perPrice"  />
+    <result column="electricity_consumption" property="consumption" />
+    <result column="total_price" property="totalPrice" />
+    <result column="etotal_price" property="eotalPrice" />
+    </resultMap>
+    <select id="getRall" resultMap="RallMap">
+        select w.date date,w.water_consumption,w.water_per_price,e.electricity_per_price,e.electricity_consumption,
+               w.total_price,e.etotal_price
+        from information.water w join information.electricity e on e.date=w.date where w.date=#{date}
+    </select>
+
+</mapper>
